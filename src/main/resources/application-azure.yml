@@ -1,5 +1,5 @@
 server:
-  port: 8080 # App Service default port
+  port: 8084 # App Service default port
 
 spring:
   application:
