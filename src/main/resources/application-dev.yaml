@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Defect-management
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/defects
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  # Multipart Configuration
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# Custom Application Properties
+app:
+  upload:
+    dir: ./uploads
+
+jwt:
+  secret: "4f6e636555706f6e4154696d654142616e6b657257616c6b6564496e746f41426172313233343536373839304142434445464748494a4b4c4d4e4f50"
+  expiration: 86400000

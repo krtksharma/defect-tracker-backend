@@ -1,0 +1,51 @@
+server:
+  port: 8080 # App Service default port
+
+spring:
+  application:
+    name: Defect-management
+
+  datasource:
+    # These variables MUST be set in Azure App Service -> Configuration
+    url: jdbc:postgresql://${DB_HOST}:5432/${DB_NAME}?sslmode=require
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    # Ensures tables are created before data.sql runs
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      # This ensures your data.sql (with the users) runs on startup
+      mode: always
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# JWT Configuration
+# Matches your @Value("${jwt.secret}") in JwtUtil.java
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000 # 24 Hours
+
+# File Upload Configuration
+app:
+  upload:
+    # /home is the ONLY persistent storage in Azure App Service Linux
+    dir: /home/uploads
+
+# Logging refinement for production
+logging:
+  level:
+    root: WARN
+    com.cognizant: INFO
+    org.springframework.web: INFO

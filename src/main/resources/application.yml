@@ -1,0 +1,10 @@
+server:
+  port: 8084
+
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
