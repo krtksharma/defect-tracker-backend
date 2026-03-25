@@ -23,11 +23,6 @@ Defect Management is a robust **Spring Boot** application designed to orchestrat
 ### 🔹 Documentation
 - springdoc-openapi 2.4.0 (Swagger UI)
 
-### 🔹 Testing & Code Quality
-- JUnit 5
-- Mockito 3.12.4
-- Jacoco 0.8.11 (Code Coverage)
-
 ### 🔹 Utilities
 - Lombok
 - SLF4J
