@@ -136,8 +136,4 @@ Response (200 OK):
 
 Kartik Sharma
 
----
 
-## 📄 License
-
-This project is licensed under the MIT License.
