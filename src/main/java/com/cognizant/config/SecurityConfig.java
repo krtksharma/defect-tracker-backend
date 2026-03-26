@@ -16,18 +16,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-/**
- * Spring Security configuration.
- * - Stateless JWT auth (no sessions)
- * - Public routes: /api/users/login, /api/users/register
- * - Everything else requires a valid JWT
- *
- * Add to pom.xml:
- *   <dependency>
- *     <groupId>org.springframework.boot</groupId>
- *     <artifactId>spring-boot-starter-security</artifactId>
- *   </dependency>
- */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -49,6 +38,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/users/login").permitAll()
                 .requestMatchers("/api/users/register").permitAll()
                 .requestMatchers("/api/attachments/download/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/defects/*/attachments").permitAll() 
                 .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
 
                 // Role-specific routes
