@@ -40,8 +40,7 @@ jwt:
 # File Upload Configuration
 app:
   upload:
-    # /home is the ONLY persistent storage in Azure App Service Linux
-    dir: /home/uploads
+    dir: /home/site/wwwroot/uploads
 
 # Logging refinement for production
 logging:
